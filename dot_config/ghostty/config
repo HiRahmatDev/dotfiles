@@ -1,0 +1,26 @@
+# Font
+font-family = JetBrainsMono Nerd Font
+font-size = 13
+
+# Tema
+theme = Catppuccin Mocha
+background = #10131C
+
+# Option sebagai Alt (untuk keymap <A-...> di nvim)
+macos-option-as-alt = true
+
+# Jendela
+maximize = true
+window-save-state = always
+
+# Pindah fokus split ala hjkl
+keybind = super+alt+h=goto_split:left
+keybind = super+alt+j=goto_split:down
+keybind = super+alt+k=goto_split:up
+keybind = super+alt+l=goto_split:right
+
+# Cadangan tanpa ⌘ (untuk akses lewat Chrome Remote Desktop), sama seperti di Windows Terminal
+keybind = alt+shift+h=goto_split:left
+keybind = alt+shift+j=goto_split:down
+keybind = alt+shift+k=goto_split:up
+keybind = alt+shift+l=goto_split:right

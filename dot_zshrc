@@ -1,0 +1,34 @@
+export PATH="$HOME/.local/bin:$PATH"
+
+# ── Dimigrasi dari .bashrc WSL ───────────
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt APPEND_HISTORY HIST_IGNORE_DUPS HIST_IGNORE_SPACE
+
+alias ls='ls -G'
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias vi=nvim
+
+autoload -Uz compinit && compinit
+
+# Volta (Node.js)
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+
+# Bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Google Cloud SDK
+export CLOUDSDK_PYTHON=/opt/homebrew/bin/python3
+GCLOUD_SDK="/opt/homebrew/share/google-cloud-sdk"
+[ -f "$GCLOUD_SDK/path.zsh.inc" ] && . "$GCLOUD_SDK/path.zsh.inc"
+[ -f "$GCLOUD_SDK/completion.zsh.inc" ] && . "$GCLOUD_SDK/completion.zsh.inc"
+
+# Oh My Posh (dilewati di Terminal.app bawaan karena tidak mendukung true color)
+if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
+  eval "$(oh-my-posh init zsh --config ~/.mytheme.omp.json)"
+fi

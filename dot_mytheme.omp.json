@@ -1,0 +1,89 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "upgrade": {
+    "source": "cdn",
+    "interval": "168h",
+    "auto": false,
+    "notice": false
+  },
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "template": "{{ .UserName }}'s ",
+          "foreground": "#FFBD00",
+          "type": "session",
+          "style": "plain"
+        },
+        {
+          "options": {
+            "style": "folder"
+          },
+          "template": "{{ .Path }}/ ",
+          "foreground": "#00C6F7",
+          "type": "path",
+          "style": "plain"
+        },
+        {
+          "options": {
+            "fetch_status": true
+          },
+          "template": "<#ffffff>on</> {{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }} ",
+          "foreground": "#F62F2E",
+          "type": "git",
+          "style": "plain"
+        },
+        {
+          "options": {
+            "fetch_version": true
+          },
+          "template": "<#ffffff>via</> \ue781 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }} ",
+          "foreground": "#98C379",
+          "type": "node",
+          "style": "plain"
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "right",
+      "segments": [
+        {
+          "trailing_diamond": " ",
+          "template": "RAM:{{ (div ((sub .PhysicalTotalMemory .PhysicalAvailableMemory)|float64) 1073741824.0) }}/{{ (div .PhysicalTotalMemory 1073741824.0) }}GB ",
+          "foreground": "#85C980",
+          "type": "sysinfo",
+          "style": "diamond"
+        },
+        {
+          "options": {
+            "style": "roundrock",
+            "threshold": 0
+          },
+          "leading_diamond": "\u250b",
+          "template": " {{ .FormattedMs }} ",
+          "foreground": "#ffffff",
+          "type": "executiontime",
+          "style": "diamond"
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "template": "\u27a4 ",
+          "foreground": "#FFBD00",
+          "type": "text",
+          "style": "plain"
+        }
+      ],
+      "newline": true
+    }
+  ],
+  "version": 4,
+  "final_space": true
+}
