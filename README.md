@@ -12,4 +12,8 @@ brew install chezmoi
 chezmoi init --apply HiRahmatDev
 ```
 
-tmux plugins are installed by [TPM](https://github.com/tmux-plugins/tpm): press `prefix + I` inside tmux.
+tmux plugins use [TPM](https://github.com/tmux-plugins/tpm). Install it once, then press `prefix + I` inside tmux:
+
+```sh
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
